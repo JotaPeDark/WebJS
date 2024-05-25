@@ -1,7 +1,3 @@
-//Cria elementos HTML dinamicamente
-//tag: O tipo de elemento HTML a ser criado, como 'div', 'p' ou 'span'
-//children: Qualquer número de elementos filhos ou nós de texto a serem anexados ao elemento criado
-
 function createElement(tag, attributes = {}, ...children) {
     const element = document.createElement(tag);
     for (const key in attributes) {
@@ -10,10 +6,6 @@ function createElement(tag, attributes = {}, ...children) {
     children.forEach(child => typeof child === 'string' ? element.appendChild(document.createTextNode(child)) : element.appendChild(child));
     return element;
 }
-
-//Adiciona estilos globais à seção <head>
-//Cria elemento <style> e anexa à seção <head>
-//CSS de <body>, <header>, <nav>, <main> e <footer>
 
 function addGlobalStyles() {
     const style = createElement('style', {}, `
@@ -32,18 +24,11 @@ function addGlobalStyles() {
     document.head.appendChild(style);
 }
 
-//Seção do cabeçalho da página da web. 
-//Limpa o conteúdo existente do elemento <header>, cria um elemento <h1> com o texto 'Squirtle' e anexa ao <header>
-
 function createHeader() {
     const header = document.querySelector('header');
     header.innerHTML = '';
     header.appendChild(createElement('h1', {}, 'Squirtle'));
 }
-
-//Menu de navegação da página da web. 
-//Limpa o conteúdo existente do elemento <nav>, cria uma lista não ordenada (<ul>) e anexa itens de lista (<li>) para cada item de navegação especificado no array navItems
-//Cada item de lista contém um elemento âncora (<a>) vinculando à seção correspondente na página
 
 function createNav() {
     const nav = document.querySelector('nav');
@@ -64,11 +49,6 @@ function createNav() {
     });
     nav.appendChild(ul);
 }
-
-//Conteúdo principal da página da web
-//Limpa o conteúdo existente do elemento <main>, então itera sobre um array de dados de seção
-//Para cada seção, ela cria um elemento <section> com um título <h2> e conteúdo especificado no array sections. 
-//O conteúdo inclui texto e imagens relacionadas às informações, características, curiosidades, artigos, recursos e evoluções do Squirtle
 
 function createMain() {
     const main = document.querySelector('main');
