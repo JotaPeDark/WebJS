@@ -1,3 +1,5 @@
+//Atividade:
+
 function createElement(tag, attributes = {}, ...children) {
     const element = document.createElement(tag);
     for (const key in attributes) {
